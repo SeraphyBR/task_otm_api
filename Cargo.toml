@@ -10,9 +10,10 @@ rocket = "0.4.7"
 serde = { version = "1.0.117", features = ["derive"] }
 serde_json = "1.0"
 dotenv = "0.15.0"
+minilp = "0.2.2"
 rocket_cors = "0.5.2"
 
 [dependencies.rocket_contrib]
-version = "0.4.6"
+version = "0.4.7"
 default-features = false
 features = ["json"]
