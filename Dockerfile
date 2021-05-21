@@ -1,6 +1,6 @@
 FROM rustlang/rust:nightly
 
-RUN apt-get update && apt-get install -y coinor-cbc
+RUN apt-get update && apt-get install -y coinor-cbc coinor-libcbc-dev
 
 WORKDIR /api
 COPY . /api
