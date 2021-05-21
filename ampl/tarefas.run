@@ -1,0 +1,13 @@
+reset;
+
+model tarefas.mod;
+
+data tarefas.dat;
+
+expand MaxPts, TempoDisp;
+
+option solver cplex;
+
+solve;
+
+display devoFazerTX, MaxPts;

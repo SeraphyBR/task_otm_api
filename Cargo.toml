@@ -6,14 +6,17 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.4.7"
-serde = { version = "1.0.117", features = ["derive"] }
+# Using 0.5 development version in github master
+rocket = { git = 'https://github.com/SergioBenitez/Rocket', rev="801e04bd5369eb39e126c75f6d11e1e9597304d8" }
+serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dotenv = "0.15.0"
-minilp = "0.2.2"
-rocket_cors = "0.5.2"
+rocket_cors = { git = "https://github.com/lawliet89/rocket_cors.git", rev="273522e697140db9a3ff5932ba667f502bfad57e" }
+good_lp = "1.1.3"
 
 [dependencies.rocket_contrib]
-version = "0.4.7"
+# Using 0.5 development version in github master
+git = "https://github.com/SergioBenitez/Rocket"
+rev = "801e04bd5369eb39e126c75f6d11e1e9597304d8"
 default-features = false
 features = ["json"]

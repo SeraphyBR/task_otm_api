@@ -1,7 +1,4 @@
-#![feature(proc_macro_hygiene, decl_macro)]
-
-#[macro_use]
-extern crate rocket;
+#[macro_use] extern crate rocket;
 
 #[cfg(test)]
 mod tests;
@@ -10,22 +7,22 @@ mod controllers;
 mod models;
 
 use rocket_cors::CorsOptions;
+use std::error::Error;
 
 use crate::controllers::problem;
 
-fn get_rocket_instance() -> rocket::Rocket {
-    let cors = CorsOptions::default().to_cors().unwrap();
+#[rocket::main]
+async fn main() -> Result<(), Box<dyn Error>> {
+    let cors = CorsOptions::default().to_cors()?;
 
     let problem_routes = routes![
         problem::solve
     ];
 
-    rocket::ignite()
+    rocket::build()
         .mount("/problem", problem_routes)
         .attach(cors)
-}
+        .launch().await?;
 
-fn main() {
-    let rocket = get_rocket_instance();
-    rocket.launch();
+    Ok(())
 }

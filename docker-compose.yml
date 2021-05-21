@@ -1,0 +1,19 @@
+
+services:
+    task_otm_api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            ROCKET_PROFILE: docker
+        ports:
+            - "8080:8080"
+        volumes:
+            # Mount the src/ directory so we don't have to rebuild the Docker image
+            # when we want to change some code
+            - ./src:/api/src:ro
+            - cargo-cache:/usr/local/cargo/registry
+            - target-cache:/api/target
+volumes:
+    cargo-cache:
+    target-cache:
