@@ -18,6 +18,8 @@ pkgs.mkShell {
         cargo-make
         # Docker
         docker-compose
+        # Heroku CLI
+        heroku
         # LP Solver
         cbc
 
