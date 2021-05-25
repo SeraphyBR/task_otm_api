@@ -1,3 +1,4 @@
+build-essentials
 liblapack3
 coinor-cbc
 coinor-libcbc-dev
